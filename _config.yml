@@ -1,2 +1,5 @@
 #
-theme: jekyll-theme-minimal
+theme: "jekyll-theme-minimal"
+title: "HELOR info"
+description: "vsuh's selected docs"
+show_downloads: true 
