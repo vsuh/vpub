@@ -65,6 +65,8 @@ plugins:
   - jekyll-feed 
   - jekyll-sitemap 
   - jekyll-tidy
+  - jekyll-seo-tag
+  - jekyll-lunr-js-search
     
 ## Enable Collections
 ## Suggested collects are "notes" "lists" and "blog"
