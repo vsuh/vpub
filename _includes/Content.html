@@ -32,6 +32,20 @@
 
 <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
 <div class="content">
+     <div id=theme-switch>
+      <button onclick="toggleTheme()">🌙/☀️</button>
+     </div>
+         <script>
+             function toggleTheme() {
+               const body = document.body;
+               body.classList.toggle('dark');
+               localStorage.setItem('theme', body.classList.contains('dark') ? 'dark' : 'light');
+             }
+             window.onload = function () {
+               const theme = localStorage.getItem('theme');
+               if (theme === 'dark') document.body.classList.add('dark');
+             };
+         </script>
     {%- if site.preferences.wiki_style_link.enabled -%}
         {%- assign content_array = content | split:'[[' -%}
         {%- assign external_link_delimiter = '::' -%}
