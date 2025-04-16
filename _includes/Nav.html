@@ -28,7 +28,6 @@
 * click on the post titles on the home page.
 *
 {%- endcomment -%}
-<script src="{{ '/assets/js/theme-toggle.js' | relative_url }}"></script>
 
 <nav class="navbar is-transparent" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
@@ -82,8 +81,21 @@
         </div>
       </div>
     </div>
-<button id="theme-toggle" aria-label="Переключить тему" style="margin-left: auto; padding: 0.3em 0.6em;">
+
+<button id="theme-toggle" style="margin-left: auto; border: none; background: none; cursor: pointer;">
   🌓
 </button>
 
+<script>
+  const toggle = document.getElementById('theme-toggle');
+  const userPref = localStorage.getItem('theme');
+  if (userPref === 'dark') document.documentElement.setAttribute('data-theme', 'dark');
+
+  toggle.addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme');
+    const newTheme = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+  });
+</script>
   </nav>
